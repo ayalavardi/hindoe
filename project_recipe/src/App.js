@@ -3,6 +3,7 @@ import { Main } from '../src/Comp/Main';
 import { Operations } from './Comp/Operations';
 import store from "./Comp/Store";
 import { Provider } from 'react-redux';
+import Payment from './Comp/Payment';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   {/* <BasicTextFields></BasicTextFields> */}
   <Provider store={store}>
 <Main/>
+{/* <Payment></Payment> */}
 </Provider>
 {/* <BasicTextFields></BasicTextFields> */}
 {/* <BasicModal/> */}

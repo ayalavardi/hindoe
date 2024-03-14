@@ -1,27 +1,36 @@
-
 .login {
-    width: 300px;
-    margin: auto;
-    border-radius: 5px;
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid #000000;
-    float: left;
-    margin: 20px;
-    box-shadow: 2px 6px 5px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #000000;
+  float: left;
+  margin: 20px;
+  box-shadow: 2px 6px 5px rgba(0, 0, 0, 0.3);
+}
 
+.login.apartment {
+  width: 1000px;
+  margin: 0 auto;
+  /* padding-left: 100px; */
+}
+.c1 ,c2{
+  float: left;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 label {
-    font-size: large;
+  font-size: large;
 }
 
 input {
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 290px;
 }
 
 /* .btns {
@@ -41,80 +50,87 @@ input {
 } */
 /* // */
 body {
-	/* display: flex;
+  /* display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
 	background: white;
     font-size: 16px;
      */
-    /* background-color: #f8faff; */
+  /* background-color: #f8faff; */
 }
-.btns {
-	position: relative;
-	appearance: none;
-	/* background: #f72359; */
-	/* padding: 1em 2em; */
-	/* border: none; */
-	/* color: white; */
-	/* font-size: 1.2em; */
-	cursor: pointer;
-	outline: none;
-	overflow: hidden;
-	/* border-radius: 100px; */
-	  padding: 8px 8px;
-    border: 1px solid #000000;
-    background-color: #FF0063;
-    border-radius: 4px;
-    width: 112px;
-    text-align: center;
-    direction: rtl;
-    margin: 5px;
-	span {
-		position: relative;
-		pointer-events: none;
-	}
-	
-	&::before {
-		--size: 0;
 
-		content: '';
-		position: absolute;
-		left: var(--x);
-		top: var(--y);
-		width: var(--size);
-		height: var(--size);
-		background: radial-gradient(circle closest-side, #ff9500, transparent);
-		transform: translate(-30%, -50%);
-		transition: width .2s ease, height .2s ease;
-	}
-	
-	&:hover::before {
-		--size: 400px;
-	}
+.btns {
+  position: relative;
+  appearance: none;
+  /* background: #f72359; */
+  /* padding: 1em 2em; */
+  /* border: none; */
+  /* color: white; */
+  /* font-size: 1.2em; */
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  /* border-radius: 100px; */
+  padding: 8px 8px;
+  border: 1px solid #000000;
+  background-color: #FF0063;
+  border-radius: 4px;
+  width: 112px;
+  text-align: center;
+  direction: rtl;
+  margin: 5px;
+
+  span {
+    position: relative;
+    pointer-events: none;
+  }
+
+  &::before {
+    --size: 0;
+
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #ff9500, transparent);
+    transform: translate(-30%, -50%);
+    transition: width .2s ease, height .2s ease;
+  }
+
+  &:hover::before {
+    --size: 400px;
+  }
 }
+
 /* //// */
-select{
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 300px;
+select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
 }
-.wraped{
-    width: 1100px;
-    margin: auto;
+
+.wraped {
+  width: 1100px;
+  margin: auto;
 }
+
 .selected-option {
-    background-color: #0cfd54; /* כאשר האופציה נבחרת, צבע הרקע יהיה ירוק */
-  }
-  .wraper{
-    width: 600px;
-    margin: auto;
-  }
-  
-  /* /// */
-  /* .btns {
+  background-color: #0cfd54;
+  /* כאשר האופציה נבחרת, צבע הרקע יהיה ירוק */
+}
+
+.wraper {
+  width: 600px;
+  margin: auto;
+}
+
+/* /// */
+/* .btns {
     font-family: "Helvetica", "Arial", sans-serif;
     display: inline-block;
     font-size: 1em;

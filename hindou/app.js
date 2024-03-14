@@ -8,6 +8,7 @@ const category = require('./routes/category')
 const user = require('./routes/user')
 const city = require('./routes/city')
 const citiesfromfour = require('./routes/citiesfromfour')
+const path = require('path');
 
 const connectDB = require('./connectToDB')
 const cors = require('cors');
@@ -31,13 +32,8 @@ const connectionParams = {
     useUnifiedTopology: true
 };
 //-----------pic------------------------------
-// const storage = multer.memoryStorage();
-// const upload = multer({ storage: storage });
-
-// הפעל middleware כדי להפעיל פעולות בקשה מסוג `multipart/form-data`
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(upload.single('file'));  // התאם לשם שהוגדר ב-FormData
 /////////////////////////////////////////////////
 
 
@@ -51,7 +47,8 @@ app.use('/category', category)
 app.use('/user', user)
 app.use('/city', city)
 app.use('/citiesfromfour', citiesfromfour)
-// app.use('/uploads',express.static(path.json(__dirname,'upload')))
+app.use('/upload', express.static(path.join(__dirname,'/upload')));
+
 app.listen(3001, () => {
     console.log(`my app is listening in http://localhost:3001`);
 })

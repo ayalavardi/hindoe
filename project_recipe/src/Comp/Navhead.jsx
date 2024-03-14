@@ -11,8 +11,8 @@ export const Navhead = (props) => {
     const pa = () => {
         debugger
         if(cuser.mail){
-        set(false) 
-        nav(`Personalyaera`) } 
+        // set(false) 
+        nav(`Operations`) } 
         else swal(`נכשל`,"עליך להירשם למערכת","error")     
     }
     const flogin = () => {

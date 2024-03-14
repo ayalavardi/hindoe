@@ -41,3 +41,136 @@ width: 100%;
 background-color: #2fff00;
     width: 100%;
 }
+/* //////////////////// */
+
+
+/* .sall {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#dtls {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+#dtls img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#dtls .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#dtls p {
+    margin-bottom: 10px;
+}
+
+#dtls strong {
+    font-weight: bold;
+}
+
+#dtls button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#dtls button:hover {
+    background-color: #d32f2f;
+}
+
+#dtls a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#dtls a:hover {
+    text-decoration: underline;
+} */
+/* //////////////////////////////////////////////////// */
+.apartment-details-page {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    /* direction: rtl; */
+
+
+}
+
+.apartment-details {
+    display: flex;
+    /* text-align: center; */
+    /* align-items: flex-start; */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: right;
+    width: 100%; 
+    margin: 0 auto; 
+    /* direction: rtl; */
+}
+
+.apartment-image {
+    width: 350px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+
+.apartment-title {
+    font-size: 24px;
+    font-weight: bold;
+    /* margin-bottom: 10px; */
+    direction: rtl;
+}
+
+.apartment-description {
+    margin-bottom: 10px;
+}
+
+.apartment-info p {
+    margin-bottom: 10px;
+}
+
+.apartment-info .apartment-advertiser a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.apartment-info .apartment-advertiser a:hover {
+    text-decoration: underline;
+}
+
+.apartment-info button {
+    background-color: #ff0051;
+    color: #fff;
+    border: #000000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.apartment-info button:hover {
+    background-color: #ff8800;
+}

@@ -55,4 +55,16 @@ const advertiserLogin = (req, res) => {
             res.status(404).send({ error: error.message })
         })
 }
-module.exports = { advertisersignal, advertiserLogin }
+const getAdvertisers = (req, res) => {
+    advertiser.find()
+        .then((advertiser) => {
+            if (!advertiser)
+                res.send("advertisers not found:(")
+            else
+            res.status(200).send({ message: 'getAdvertisers succeefull!', advertiser: advertiser })
+        })
+        .catch((error) => {
+            res.status(400).send(error.message)
+        })
+}
+module.exports = { advertisersignal, advertiserLogin, getAdvertisers }

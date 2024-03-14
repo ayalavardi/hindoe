@@ -124,27 +124,13 @@ export const Aadrecip = async () => {
 
     return <>
 
-        <form className='login' onSubmit={(e) => send(e)}>
+        <form className='apartment' onSubmit={(e) => send(e)}>
             {/* ----name------------------------------ */}
             <label htmlFor={'name'}>recip name:</label>
             <input id={'name'} placeholder={'input name recip'} onChange={(e) => setName(e.target.value)}></input>
             {/* ----description------------------------------ */}
             <label htmlFor={'description'}>description:</label>
             <input id={'name'} placeholder={'input description'} onChange={(e) => setDescription(e.target.value)}></input>
-            {/* ----category------------------------------ */}
-            {/* <label htmlFor="Category">select Category:</label>
-            <br></br>
-            <select id="selcetCategory" onChange={(e) => setCatego(e.target.value)}>
-                <option value="" disabled selected hidden>בחר אפשרות</option>
-                {Categories && Categories.map((c, index) => <option key={index} value={c._id}>{c.name}</option>)}
-            </select> */}
-            {/* ----city------------------------------ */}
-            {/* <label htmlFor="selcetCategor">select city:</label>
-            <br></br>
-            <select id="selcetCategor" onChange={(e) => setCity(e.target.value)}>
-                <option value="" disabled selected hidden>בחר אפשרות</option>
-                {Cities && Cities.map((c, index) => <option key={index} value={c._id}>{c.name}</option>)}
-            </select> */}
             {/* ----address------------------------------ */}
             <label htmlFor={'address'}>recip name:</label>
             <input id={'name'} placeholder={'input address'} onChange={(e) => setAddress(e.target.value)}></input>
@@ -163,24 +149,6 @@ export const Aadrecip = async () => {
                 setAdditions( e.target.value.split(','))
             }} />
 
-            {/* ----level------------------------------ */}
-            {/* <label htmlFor="selcetLavel">select Lavel:</label>
-            <br></br>
-            <select id="selcetLavel" onChange={(e) => setLavel(e.target.value)}>
-                <option value="" disabled selected hidden>בחר אפשרות</option>
-                {levels.map((l, index) => <option key={index} value={l.code}>{l.name}</option>)}
-            </select> */}
-            {/* ----ingread------------------------------ */}
-            {/* <label htmlFor="selcetingread">select ingread:</label>
-            <br></br>
-            <select multiple id="selcetingread">
-                {ingreads.map((option, index) => (
-                    <option key={index} value={option.Ingredid} onClick={() => handleOptionChange(option)}
-                        className={selectedOptions.includes(option) ? 'selected-option' : ''}
-                    >{option.name} </option>
-                ))}
-            </select> */}
-
             {/* ---pic---------------------------------------- */}
             <Container className="App">
                 <Form>
@@ -197,11 +165,7 @@ export const Aadrecip = async () => {
             <br></br>
             <label htmlFor={'name'}>recip name:</label>
             <br></br>
-            {/*<br></br>
-      <label htmlFor={'pass'}>Password:</label>
-      <br></br>
-      <input id={'pass'} type={'password'} placeholder={'input password'}></input>
-      <br></br>*/}
+
             <input type={'submit'} value={'send'} className="btns"></input>
             <br></br>
         </form>

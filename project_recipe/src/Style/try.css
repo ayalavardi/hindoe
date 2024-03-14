@@ -1,6 +1,6 @@
 html {
     /* box-sizing: border-box; */
-    --bgColorMenu: #1d1d27;
+    --bgColorMenu: #000000;
     --duration: 0.7s;
   }
   
@@ -34,6 +34,7 @@ html {
     align-items: center;
     justify-content: center;
     background-color: var(--bgColorMenu);
+    margin-top: 420px;
   }
   
   .menu__item {

@@ -7,35 +7,40 @@ const advertiser = require('../models/advertiser')
 dotenv.config()
 
 const addCity = (req, res) => {
+    console.log();
     advertiser.findOne({ _id: { $eq: req.query.id } })
         .then((advertiser) => {
-            if (advertiser) {
-                res.status(404).send({ mass: `Advertiser already exists` });
-            } else {
+            if (!advertiser)
+                res.status(404).send({ error: "לא נמצא מפרסם" });
+            else {
                 const { name } = req.body;
                 City.findOne({ name: { $eq: name } })
                     .then((city) => {
                         if (city) {
+                            console.log(`City already exists`, city, City);
                             res.status(404).send({ mass: `City already exists` });
-                        } else {
+                        }
+                        else {
                             const newCity = new City(req.body);
                             newCity.save()
                                 .then((savedCity) => {
                                     res.status(200).send({ message: `Create city ${savedCity.name} succeed!` });
                                 })
                                 .catch((err) => {
-                                    res.status(404).send({ error: err.message });
+                                    console.log("vffvfvfvfvf");
+                                    res.status(404).send({ error: `&{err.message}` });
                                 });
                         }
                     })
-                    .catch((err) => {
+                    .catch(() => {
                         res.status(404).send({ error: err.message });
                     });
             }
         })
         .catch((err) => {
-            res.status(404).send({ error: err.message });
-        });
+            console.log("לא נמצא מפרסם");
+            res.status(404).send({ error: "לא נמצא מפרסם" });
+        })
 };
 
 const getAllCity = (req, res) => {
@@ -44,7 +49,7 @@ const getAllCity = (req, res) => {
             if (!city)
                 res.send("citys not found:(")
             else
-            res.send( city )
+                res.send(city)
         })
         .catch((error) => {
             res.status(400).send(error.message)

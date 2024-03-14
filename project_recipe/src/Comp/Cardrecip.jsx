@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router-dom'
 import '../Style/style.css'
 
 const ExpandMore = styled((props) => {
+  // debuger
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
@@ -30,9 +31,11 @@ const ExpandMore = styled((props) => {
 }));
 //props.data
 export default function RecipeCard(props) {
-  let image = props.dataE
-  let id = props.dataF
+  let image =`http://localhost:3001/${props.dataE}` 
+  let id = props.dataAA
   let nav = useNavigate()
+  console.log("img--",image);
+
   const Look = () => {//בעת לחיצה  על הכרטיס יראה את כול הנתונים
     debugger
     nav(`/Sall/${id}`)
@@ -46,7 +49,7 @@ export default function RecipeCard(props) {
     <Card sx={{ maxWidth: 345, marginLeft: 10, marginRight: 10, marginTop: 5, marginBlock: 5 }} onClick={() => Look()} className="Cardit">
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: '#4DFF00' }} aria-label="recipe" className='Card'>
+          <Avatar sx={{ bgcolor: '#FF0063' }} aria-label="recipe" className='Card'>
             {props.dataC}
           </Avatar>
         }

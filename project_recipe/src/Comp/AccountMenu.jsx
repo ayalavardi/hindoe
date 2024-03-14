@@ -21,7 +21,7 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  return (
+  return <>
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Typography sx={{ minWidth: 100 }}>Contact</Typography>
@@ -101,5 +101,5 @@ export default function AccountMenu() {
         </MenuItem>
       </Menu>
     </React.Fragment>
-  );
+  </>
 }

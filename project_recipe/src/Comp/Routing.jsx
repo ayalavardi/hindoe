@@ -13,6 +13,8 @@ import { Aadrecip } from './Aadrecip'
 import { Login } from './Login'
 import { Aadlevel } from './Aadlevel'
 import { AadCity } from './AadCity'
+import ApartmentsList from './apartmentsList'
+import RecipeCard from './Cardrecip'
 export const Routing = () => {
     return <>
         <Routes>
@@ -36,6 +38,8 @@ export const Routing = () => {
             <Route path={'Aadrecip'} element={<Aadrecip></Aadrecip>}>
                 <Route path={'Commen'} element={<Commen></Commen>}></Route>
             </Route>
+            <Route path={'ApartmentsList'} element={<ApartmentsList></ApartmentsList>}></Route>
+            <Route path={'RecipeCard/:id'} element={<RecipeCard></RecipeCard>}></Route>
 
         </Routes>
     </>

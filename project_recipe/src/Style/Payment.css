@@ -1,0 +1,58 @@
+.apartment-payment-container {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: right;
+    width: 20%; 
+    margin: 0 auto; 
+    
+  }
+
+  .price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .price-details {
+    font-size: 16px;
+    /* text-align: center; */
+
+  }
+  
+  .total {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 10px 0;
+  }
+  
+  .dates {
+    margin-bottom: 20px;
+  }
+  
+  .check-in,
+  .check-out {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .continue-button {
+    background-color: #ff0080;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 80%;
+  }
+  

@@ -16,13 +16,13 @@ const addApartment = (req, res) => {
     const {path:img}=req.file
     // const img = req.file 
     // const img = req.file ? req.file.path.replace(/\\/g, '/') : null;
-    console.log("img",req.file);
+    // console.log("img",req.file);
 
-    console.log("2+",img);
+    // console.log("2+",img);
 const newAp = new Apartment({
     name,
     description: desc,
-    image: img,
+    image: img.replace('\\', '/'),
     categoryCode,
     cityCode,
     address,
@@ -40,6 +40,7 @@ const newAp = new Apartment({
                             advertiser.findByIdAndUpdate(advertiserCode, { $push: { apartments: apart._id } }, { new: true })
                                 .then(() => {
                                     res.status(200).send({ message: `create apartment ${apart._id} succeed!` })
+                                    console.log("secc");
                                 })
                         })
                 })

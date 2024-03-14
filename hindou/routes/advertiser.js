@@ -6,9 +6,13 @@ const router = express.Router()
 
 const {
     advertisersignal,
-    advertiserLogin
+    advertiserLogin,
+    getAdvertisers
 } = require('../controllers/advertiser')
+
+router.get('/', getAdvertisers)
 
 router.post('/Login', advertiserLogin)
 router.post('/signal', advertisersignal)
+
 module.exports = router

@@ -19,6 +19,10 @@ export default {
 
     return p;
   },
+  getAllAdvertisers: async () => {
+    const result = await axios.get(`${apiUrl}/`)  
+    return result.data;
+  },
   //////////////////
   // getUser: async (email,password) => {
   //   const result = await axios.get(`https://localhost:7130/api/User/${email}/${password}`)    
