@@ -163,9 +163,7 @@
 //     );
 // };
 
-import { useDispatch, useSelector } from "react-redux";
-import { addCatergy } from "./Set";
-import swal from "sweetalert";
+import {  useSelector } from "react-redux";
 import { Autocomplete, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -175,33 +173,34 @@ import { Button } from "react-bootstrap";
 export const AadCity = () => {
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState('');
-  const [selectedData, setSelectedData] = useState();
+  const [selectedData, setSelectedData] = useState('');
   const CarrentUser = useSelector(x => x.currentUser);
   useEffect(() => {
     axios.get('https://data.gov.il/api/3/action/datastore_search?resource_id=5c78e9fa-c2e2-4771-93ff-7f400a12f7ba&fields=%D7%A9%D7%9D_%D7%99%D7%A9%D7%95%D7%91')
       .then(response => {
         console.log(response.data.result.records);
-        setCities(response.data.result.records); // יש להחליף city לשם השדה בהתאם לנתונים
+        setCities(response.data.result.records);
       })
       .catch(error => {
         console.error('Error fetching cities:', error);
       });
   }, []);
   const handleCityChange = (event, value) => {
-    debugger
     setSelectedCity(value);
-    const filteredData = cities.filter(city => city === value); // סינון הנתונים לפי העיר שנבחרה
-    setSelectedData(value.value);
+    // setSelectedData(value);
+    console.log(value);
+    // const filteredData = cities.filter(city => city === value.value);
+   
   };
 
   const handleSave = () => {
-    // כאן את יכולה להשתמש ב-selectedData לשליחה או לשמירה של הנתונים הנבחרים
-    service_city.addCity(selectedData,CarrentUser.id).then(
+    service_city.addCity(selectedCity.label,CarrentUser.id)
+    .then(
       console.log('seccjj')
     ).catch(
       console.log('err')
     )
-    console.log(selectedData);
+    console.log(selectedCity);
   };
   return <>
     <div>
@@ -209,26 +208,12 @@ export const AadCity = () => {
   disablePortal
   id="city-autocomplete"
   options={cities.map(city => ({ label: city.שם_ישוב, value: city.שם_ישוב }))}
-  value={selectedCity}
+  // value={selectedCity}
   onChange={handleCityChange}
   renderInput={(params) => <TextField {...params} label="City" />}
 />
       <br />
       <Button variant="contained" onClick={handleSave}>Save</Button>
-      {/* <br />
-      <div>
-        כאן תוכלי להציג את הפרטים שנבחרו
-        <h2>Selected City: {selectedCity}</h2>
-      </div>
-      <div>
-        כאן תוכלי להציג את הנתונים הרלוונטיים מתוך הפריט
-        <h3>Selected Data:</h3>
-        <ul>
-          {cities && cities.map((item, index) => (
-            <li key={index}>{item.שם_ישוב}</li>
-          ))}
-        </ul>
-      </div> */}
     </div>
   </>
 }

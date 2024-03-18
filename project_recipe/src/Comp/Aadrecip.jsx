@@ -29,12 +29,6 @@ export const Aadrecip = async () => {
     const codeuser = CarrentUser.id
     const [Categories, setCategories] = useState([]);
     const [Cities, setCities] = useState([]);
-    // const recipies = useSelector(x => x.recipes);
-    // const levels = useSelector(x => x.Levels);
-    // const ingreads = useSelector(x => x.Ingredients);
-    // const IngredientsToRecipes = useSelector(x => x.IngredientsToRecipes);
-    // const cuser = useSelector(x => x.currentUser)
-    // const users = useSelector(x => x.users)
     const [categor, setCatego] = useState()
     const [city, setCity] = useState()
     const [description, setDescription] = useState()

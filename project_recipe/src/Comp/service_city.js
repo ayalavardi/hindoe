@@ -4,8 +4,9 @@ import axios from 'axios';
 
 export default {
   addCity: async (City,id) => {
+    console.log("City",City);
     const s=localStorage.getItem("token")
-    const result = await axios.post(`http://localhost:3001/city?id=${id}`, City, { 
+    const result = await axios.post(`http://localhost:3001/city?id=${id}`, {city:City}, { 
       headers: { 'authorization': localStorage.getItem('token')}})
     return result.data;
   },
@@ -14,5 +15,4 @@ export default {
     return result.data;
   },
   /////////////////////////////
-  
 };

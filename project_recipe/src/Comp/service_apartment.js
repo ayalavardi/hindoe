@@ -59,5 +59,36 @@ export default {
     catch {
       console.log("err in getAllApartments");
     }
+  },
+
+  update: async (ap, f,id) => {
+    try {
+      debugger
+      const formData = new FormData();
+      // formData.append('file', f);
+      formData.append('name', ap.name);
+      formData.append('desc', ap.desc);
+      formData.append('categoryCode', ap.categoryCode);
+      formData.append('cityCode', ap.cityCode);
+      formData.append('address', ap.address);
+      formData.append('numOfBeds', ap.numOfBeds);
+      formData.append('additives', ap.additives);
+      formData.append('price', ap.price);
+      formData.append('advertiserCode', ap.advertiserCode);
+      if (f) {
+        formData.append('img', f);
+      }
+      console.log("formData", formData);
+      const result = await axios.patch(`http://localhost:3001/apartment/update/${id}`, formData, {
+        headers: {
+          'authorization': localStorage.getItem('token')
+        }
+      });
+      console.log("Success: Apartment update successfully", result.data);
+      return result.data;
+    } catch (error) {
+      console.error('error: Apartment update to faild:', error);
+      throw error; 
+    }
   }
 }

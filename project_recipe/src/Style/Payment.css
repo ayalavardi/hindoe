@@ -6,10 +6,20 @@
     padding: 20px;
     text-align: right;
     width: 20%; 
-    margin: 0 auto; 
-    
+    margin: 20px ; 
+    float: left;
   }
-
+  .apartment-payment-container.else{
+    width: 50%; 
+    /* margin: auto; */
+    /* float: right; */
+  /* display: flex; */
+}
+  .apartment-payment-container.small{
+    width: 90%; 
+  margin-bottom: 10px;
+/* margin: auto; */
+  }
   .price {
     display: flex;
     justify-content: space-between;

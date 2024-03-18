@@ -7,42 +7,52 @@ const advertiser = require('../models/advertiser')
 dotenv.config()
 
 const addCity = (req, res) => {
-    console.log();
+    console.log(req.body.city);
     advertiser.findOne({ _id: { $eq: req.query.id } })
         .then((advertiser) => {
-            if (!advertiser)
+            if (!advertiser) {
+                console.log("לא נמצא מפרסם");
                 res.status(404).send({ error: "לא נמצא מפרסם" });
+            }
             else {
-                const { name } = req.body;
+                console.log("נמצא מפרסם");
+                const name = req.body.city;
+                console.log("name1 ",req.body);
+                console.log("name2 ",name);
+                console.log("name3 ",req.body.city);
                 City.findOne({ name: { $eq: name } })
                     .then((city) => {
-                        if (city) {
-                            console.log(`City already exists`, city, City);
+                        console.log(" City.findOne");
+                        if (city!=null) {
+                            console.log(`City already exists`, city, name);
                             res.status(404).send({ mass: `City already exists` });
                         }
                         else {
-                            const newCity = new City(req.body);
+                            console.log("else");
+                            const newCity = new City({name});
+                            console.log(newCity);
                             newCity.save()
                                 .then((savedCity) => {
-                                    res.status(200).send({ message: `Create city ${savedCity.name} succeed!` });
+                                    console.log("secc");
+                                    res.status(200).send({ message: `Create city ${savedCity} succeed!` });
                                 })
-                                .catch((err) => {
+                                .catch(() => {
                                     console.log("vffvfvfvfvf");
                                     res.status(404).send({ error: `&{err.message}` });
                                 });
                         }
                     })
                     .catch(() => {
-                        res.status(404).send({ error: err.message });
+                        console.log("catch");
+                        res.status(404).send({ error:"lk" });
                     });
             }
         })
-        .catch((err) => {
+        .catch(() => {
             console.log("לא נמצא מפרסם");
-            res.status(404).send({ error: "לא נמצא מפרסם" });
+            res.status(404).send({ "error": "vg" });
         })
 };
-
 const getAllCity = (req, res) => {
     City.find()
         .then((city) => {

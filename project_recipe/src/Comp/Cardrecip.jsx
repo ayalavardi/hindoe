@@ -31,10 +31,10 @@ const ExpandMore = styled((props) => {
 }));
 //props.data
 export default function RecipeCard(props) {
-  let image =`http://localhost:3001/${props.dataE}` 
+  let image = `http://localhost:3001/${props.dataE}`
   let id = props.dataAA
   let nav = useNavigate()
-  console.log("img--",image);
+  console.log("img--", image);
 
   const Look = () => {//בעת לחיצה  על הכרטיס יראה את כול הנתונים
     debugger
@@ -75,7 +75,13 @@ export default function RecipeCard(props) {
           if you like.
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      {/* {status=='personal' && <button className='btns'
+      onClick={() => deleteApar(apartment._id)}
+      >Delete Apartment</button>} */}
+      {/* {status=='personal' && <button className='btns' 
+      onClick={() => updata(apartment._id)}
+      >Update Apartment</button>} */}
+       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton >

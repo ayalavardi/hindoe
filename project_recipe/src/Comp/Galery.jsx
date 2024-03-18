@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 import { Aadcategor } from "./Aadcategor"
-import { Aadingread } from "./Aadingread"
 import { Aadlevel } from "./Aadlevel"
 import { Aadrecip } from "./Aadrecip"
 import '../Style/staylregister.css'

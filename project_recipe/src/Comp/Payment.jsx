@@ -24,7 +24,7 @@ const Payment = () => {
             <button className="continue-button">המשך</button>
         </div> */}
         <div className="apartment-payment-container">
-            <div className="total">יעלה וראה</div>
+            <div className="total">פרטי תשלום </div>
             <div className="divider"></div>
             <div className="dates">
                 <div className="check-in">תאריך צ'ק-אין: 5/15/2024</div>

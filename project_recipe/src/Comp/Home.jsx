@@ -1,5 +1,5 @@
 import logo from '../Pic/הינדו 2.png'
-import meat from '../Pic/בשרבאש.png'
+import meat from '../Pic/551cf29ee311a70315f6476fee10fdab.jpg'
 import stam from '../Pic/קישקוש.png'
 // import '../Style/styleb.css'
 

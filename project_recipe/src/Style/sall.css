@@ -174,3 +174,12 @@ background-color: #2fff00;
 .apartment-info button:hover {
     background-color: #ff8800;
 }
+.more{
+    width: 100%;
+    margin:  auto;
+}
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 10px 0;
+  }

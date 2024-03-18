@@ -9,28 +9,28 @@ const city = require('../models/city')
 
 dotenv.config()
 
-const addApartment = (req, res) => {    
+const addApartment = (req, res) => {
     // const { name, desc, img, categoryCode, cityCode, address, numOfBeds, additives, price, advertiserCode } = req.body
     const { name, desc, categoryCode, cityCode, address, numOfBeds, additives, price, advertiserCode } = req.body
     // const { path: img } = req.file
-    const {path:img}=req.file
+    const { path: img } = req.file
     // const img = req.file 
     // const img = req.file ? req.file.path.replace(/\\/g, '/') : null;
     // console.log("img",req.file);
 
     // console.log("2+",img);
-const newAp = new Apartment({
-    name,
-    description: desc,
-    image: img.replace('\\', '/'),
-    categoryCode,
-    cityCode,
-    address,
-    numOfBeds,
-    additives:additives.split(','),
-    price,
-    advertiserCode
-});
+    const newAp = new Apartment({
+        name,
+        description: desc,
+        image: img.replace('\\', '/'),
+        categoryCode,
+        cityCode,
+        address,
+        numOfBeds,
+        additives: additives.split(','),
+        price,
+        advertiserCode
+    });
     newAp.save()
         .then((apart) => {
             Category.findByIdAndUpdate(categoryCode, { $push: { apartments: apart._id } }, { new: true })
@@ -55,37 +55,88 @@ const newAp = new Apartment({
             res.status(500).send({ error: err.message, message: `in the aprtmen after${categoryCode}` })
         })
 }
+// const update = (req, res) => {
+//     const { name, desc, img, categoryCode, cityCode, address, numOfBeds, additives, price, advertiserCode } = req.body
+//     const _id = req.params.id
+//     Apartment.findById(_id)
+//         .then(apartment => {
+//             if (apartment.advertiser != req.params.userId) {
+//                 return res.status(400).send({ message: 'Cannot update this apartment!' })
+//             }
+//             if (advertiserCode && advertiserCode != apartment.advertiser) {
+//                 return res.status(400).send({ message: `Cannot update apartment's advertiser!` })
+//             }
+
+//             if (cityCode && cityCode != apartment.cityCode) {
+//                 return res.status(400).send({ message: `Cannot update apartment's cityCode!` })
+//             }
+
+//             if (categoryCode != apartment.categoryCode) {
+//                 return Category.findById(categoryCode)
+//                     .then((category) => {
+//                         if (!category) {
+//                             return res.status(404).send({ message: `Category not found!` })
+//                         }
+
+//                         Category.findByIdAndUpdate(apartment.categoryCode, { $pull: { apartment: apart._id } }, { new: true })
+//                         return Category.findByIdAndUpdate(categoryCode, { $push: { apartments: apart._id } }, { new: true })
+
+//                     })
+//                     .catch((error) => {
+//                         res.status(500).send({ error: error.message })
+//                     })
+//             }
+
+//             Apartment.findByIdAndUpdate(_id, req.body, { new: true })
+//                 .then((Apartment) => {
+//                     res.status(200).send(Apartment)
+//                 })
+//                 .catch((error) => {
+//                     res.status(404).send({ error: error.message })
+//                 })
+//         })
+//         .catch(error => {
+//             res.status(404).send({ error: error.message })
+//         })
+// }
 const update = (req, res) => {
-    const { name, desc, img, categoryCode, cityCode, address, numOfBeds, additives, price, advertiserCode } = req.body
+
+    const { name, desc, categoryCode, cityCode, address, numOfBeds, additives, price, advertiserCode } = req.body
+    console.log(req.body);
     const _id = req.params.id
     Apartment.findById(_id)
         .then(apartment => {
-            if (apartment.advertiser != req.params.userId) {
+            if (apartment.advertiserCode != advertiserCode) {
+                console.log("Cannot update this apartment!", advertiserCode, "---", apartment.advertiser, "---", apartment);
                 return res.status(400).send({ message: 'Cannot update this apartment!' })
             }
-            if (advertiserCode && advertiserCode != apartment.advertiser) {
+            if (advertiserCode && advertiserCode != apartment.advertiserCode) {
+                console.log("Cannot update apartment's advertiser!");
                 return res.status(400).send({ message: `Cannot update apartment's advertiser!` })
             }
-
             if (cityCode && cityCode != apartment.cityCode) {
+                console.log("Cannot update apartment's cityCode!");
                 return res.status(400).send({ message: `Cannot update apartment's cityCode!` })
             }
 
-            if (categoryCode != apartment.categoryCode) {
-                return Category.findById(categoryCode)
-                    .then((category) => {
-                        if (!category) {
-                            return res.status(404).send({ message: `Category not found!` })
-                        }
+            // if (categoryCode != apartment.categoryCode._id) {
+            //     return Category.findById(categoryCode)
+            //         .then((category) => {
+            //             if (!category) {
+            //                 console.log("Category not found!");
+            //                 return res.status(404).send({ message: `Category not found!` })
+            //             }
+            //             console.log("fgbgthybnh not found!", apartment.categoryCode);
+            //             // Category.findByIdAndUpdate(apartment.categoryCode, { $pull: { apartment: apart._id } }, { new: true })
 
-                        Category.findByIdAndUpdate(apartment.categoryCode, { $pull: { apartment: apart._id } }, { new: true })
-                        return Category.findByIdAndUpdate(categoryCode, { $push: { apartments: apart._id } }, { new: true })
+            //             return Category.findByIdAndUpdate(categoryCode, { $push: { apartments: apart._id } }, { new: true })
 
-                    })
-                    .catch((error) => {
-                        res.status(500).send({ error: error.message })
-                    })
-            }
+            //         })
+            //         .catch((error) => {
+            //             console.log("lkjhgf");
+            //             res.status(500).send({ error: error.message })
+            //         })
+            // }
 
             Apartment.findByIdAndUpdate(_id, req.body, { new: true })
                 .then((Apartment) => {
